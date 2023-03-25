@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const AllQuotes = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:4444/quotes`)
+    fetch(`https://karleenmsrichards-quotes.glitch.me/quotes`)
       // fetch(url)
       .then((response) => response.json())
       .then((data) => {

@@ -3,22 +3,19 @@ import { useEffect, useState } from "react";
 export const Home = () => {
   const [data, setData] = useState("");
 
-  const url = `http://localhost:4444/quotes/random`;
+  const url = `https://karleenmsrichards-quotes.glitch.me/quotes/random`;
 
   function handleClick() {
-    karleen();
+    window.location.reload();
   }
-  function karleen() {
+
+  useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
       });
-  }
-
-  useEffect(() => {
-    karleen();
-  }, []);
+  }, [url]);
   return (
     <div className="hero-wrapper">
       <p>"{data?.quote}"</p>

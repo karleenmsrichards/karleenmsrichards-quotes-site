@@ -238,8 +238,3 @@ text-decoration: underline;
       flex-direction: column;
     }
   }
-
-body {
-  cursor: url("./new-moon.png") auto;
-
-}

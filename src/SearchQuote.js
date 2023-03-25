@@ -5,7 +5,10 @@ export const SearchQuote = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:4444/quotes/search?term=${inputValue}`)
+    // fetch(`http://localhost:4444/quotes/search?term=${inputValue}`)
+    fetch(
+      `https://karleenmsrichards-quotes.glitch.me/quotes/search?term=${inputValue}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setData(data);
