@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { QuoteCard } from "./QuoteCard";
 
 export const AllQuotes = () => {
   const [data, setData] = useState(null);
@@ -7,7 +8,6 @@ export const AllQuotes = () => {
       // fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setData(data);
       });
   }, []);
@@ -15,14 +15,7 @@ export const AllQuotes = () => {
   return (
     <div className="quotes-wrapper">
       <h1>every Quote...</h1>
-      {data?.map((item) => {
-        return (
-          <div className="quote-content">
-            <p>"{item.quote}"</p>
-            <p>Author: {item.author}</p>
-          </div>
-        );
-      })}
+      <QuoteCard data={data} />
     </div>
   );
 };

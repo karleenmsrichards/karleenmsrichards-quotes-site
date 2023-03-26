@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { QuoteCard } from "./QuoteCard";
 
 export const SearchQuote = () => {
   const [inputValue, setInputValue] = useState("");
@@ -23,24 +24,18 @@ export const SearchQuote = () => {
           htmlFor="search-quote"
           style={{ color: inputValue ? "black" : "rgb(184, 53, 239)" }}
         >
-          search Quote:
+          search Quote
         </label>
         <input
+          name="search-quote"
           className="quotes-input"
           onChange={(e) => setInputValue(e.target.value)}
         />
       </div>
       {inputValue ? (
         <div className="quote-content">
-          <h1>found These...</h1>
-          {data?.map((item) => {
-            return (
-              <div className="quote-content">
-                <p>"{item.quote}"</p>
-                <p>Author: {item.author}</p>
-              </div>
-            );
-          })}
+          <h1>your Results...</h1>
+          <QuoteCard data={data} />
         </div>
       ) : (
         <></>

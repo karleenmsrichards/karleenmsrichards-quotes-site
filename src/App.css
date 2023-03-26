@@ -8,7 +8,6 @@
 body {
   background: url("https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__480.jpg") no-repeat center center fixed; 
   background-size: cover;
-  /* border: 2px dotted red; */
   width: 100%;
 }
 
@@ -19,7 +18,6 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 70px;
- /* border: 2px dotted red; */
 }
 
 @media only screen and (max-width: 375px) {
@@ -62,7 +60,6 @@ header {
     text-align: right;
     border: none;
     border-bottom: 1px solid black;
-    /* border: 2px dotted red; */
   }
 }
 
@@ -136,11 +133,28 @@ text-decoration: underline;
   text-decoration: underline;
   }
 
+  .loading-wrapper {
+    width: 900px;
+    background-color: rgb(248, 227, 253);
+    border: 1px solid black;
+    padding: 4% 5%;
+    text-align: left;
+  }
+
+  @media only screen and (max-width: 375px) {
+    .loading-wrapper {
+      text-align: center;
+      align-items: center;
+      padding: 5% 7%;
+    }
+  }
+
   .hero-wrapper {
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     padding: 4% 5%;
     border: 1px solid black;
@@ -150,18 +164,25 @@ text-decoration: underline;
 
   @media only screen and (max-width: 375px) {
     .hero-wrapper {
+      width: 90%;
       text-align: center;
+      align-items: center;
       gap: 15px;
       margin: 0 15px;
-      padding: 6%;
+      padding: 10% 5%;
     }
+  }
+
+  .bold-text {
+    font-weight: bold;
   }
 
   .hero-btn {
     background-color: rgb(184, 53, 239);
-    padding: 20px 30px;
+    padding: 15px 20px;
     border: 1px solid black;
     font-weight: bold;
+    font-size: 16px;
     box-shadow: 0 3px 10px rgb(115, 113, 113);
   }
 
@@ -170,29 +191,33 @@ text-decoration: underline;
   }
 
   .quotes-wrapper {
-    margin: 0 150px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 50px;
     background-color: rgb(248, 227, 253);
     box-shadow:  rgba(154, 154, 162, 0.2) 0px -7px 29px 0px;
     border: 1px solid black;
   }
 
+  @media only screen and (max-width: 375px) {
+    .quotes-wrapper {
+      width: 90%;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+    }
+  }
+
   h1 {
-    /* margin-bottom: 20px; */
     color: rgb(184, 53, 239);
+    font-size: 28px;
   }
 
   @media only screen and (max-width: 375px) {
     h1 {
-      margin-bottom: 10px;
-    }
-  }
-
-  @media only screen and (max-width: 375px) {
-    .quotes-wrapper {
-      margin: 0 15px;
-      text-align: center;
-      padding: 30px 20px;
+      font-size: 24px;
     }
   }
 
@@ -202,21 +227,30 @@ text-decoration: underline;
   }
 
   .quotes-label-input{
+    align-self: center;
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
 
   @media only screen and (max-width: 768px) {
-    .quotes-label-input{
-    flex-direction: column;
+    .quotes-label-input {
+      align-self: flex-start;
+      align-items: flex-start;
     }
   }
 
   .search-quote-label {
     font-weight: bold;
-   color: rgb(184, 53, 239);
+    font-size: 20px;
+    color: rgb(184, 53, 239);
+  }
+
+  @media only screen and (max-width: 768px) {
+    .search-quote-label {
+      font-size: 18px;
+    }
   }
 
   .quotes-input {
