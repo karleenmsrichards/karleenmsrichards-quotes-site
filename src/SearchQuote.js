@@ -12,7 +12,7 @@ export const SearchQuote = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setData(data);
+        data ? setData(data) : setData("sorry, No quotes were found");
       });
   }, [inputValue]);
 
