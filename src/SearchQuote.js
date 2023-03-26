@@ -11,7 +11,6 @@ export const SearchQuote = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setData(data);
       });
   }, [inputValue]);
@@ -19,11 +18,7 @@ export const SearchQuote = () => {
   return (
     <div className={!inputValue ? "quotes-wrapper-empty" : "quotes-wrapper"}>
       <div className="quotes-label-input">
-        <label
-          className="search-quote-label"
-          htmlFor="search-quote"
-          style={{ color: inputValue ? "black" : "rgb(184, 53, 239)" }}
-        >
+        <label className="search-quote-label" htmlFor="search-quote">
           search Quote
         </label>
         <input
