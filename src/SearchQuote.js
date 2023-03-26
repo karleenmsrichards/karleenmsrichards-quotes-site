@@ -6,18 +6,18 @@ export const SearchQuote = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // fetch(`http://localhost:4444/quotes/search?term=${inputValue}`)
     fetch(
       `https://karleenmsrichards-quotes.glitch.me/quotes/search?term=${inputValue}`
     )
       .then((response) => response.json())
       .then((data) => {
-        data ? setData(data) : setData("sorry, No quotes were found");
+        console.log(data);
+        setData(data);
       });
   }, [inputValue]);
 
   return (
-    <div className="quotes-wrapper">
+    <div className={!inputValue ? "quotes-wrapper-empty" : "quotes-wrapper"}>
       <div className="quotes-label-input">
         <label
           className="search-quote-label"
@@ -33,9 +33,13 @@ export const SearchQuote = () => {
         />
       </div>
       {inputValue ? (
-        <div className="quote-content">
-          <h1>your Results...</h1>
-          <QuoteCard data={data} />
+        <div className="search-results-wrapper">
+          {data.length > 0 ? (
+            <h1>your Results...</h1>
+          ) : (
+            <p className="empty-search-text">...sorry, No quotes found</p>
+          )}
+          {data.length > 0 ? <QuoteCard data={data} /> : <></>}
         </div>
       ) : (
         <></>

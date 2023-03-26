@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { Loading } from "./Loading";
 
 export const Home = () => {
   const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
 
   const url = `https://karleenmsrichards-quotes.glitch.me/quotes/random`;
 
@@ -16,17 +14,13 @@ export const Home = () => {
       .then((response) => response.json())
       .then((data) => {
         setData(data);
-        // setLoading(false);
       })
       .catch((err) => err);
   }, [url]);
 
-  //loading ? (
-  //   <Loading />
-  // ) :
   return (
     <div className="hero-wrapper">
-      <h1>random Quote...</h1>
+      <h1>your Tailored quote...</h1>
       <>
         {!data?.quote ? <p>"...loading"</p> : <p>"{data?.quote}"</p>}
         <p>
@@ -34,7 +28,7 @@ export const Home = () => {
         </p>
       </>
       <button className="hero-btn" onClick={handleClick}>
-        new Quote
+        another Tailored quote
       </button>
     </div>
   );

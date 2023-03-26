@@ -5,7 +5,6 @@ export const AllQuotes = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch(`https://karleenmsrichards-quotes.glitch.me/quotes`)
-      // fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setData(data);

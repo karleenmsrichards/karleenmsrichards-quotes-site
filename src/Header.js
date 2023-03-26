@@ -3,7 +3,7 @@ export const Header = () => {
     <header>
       <div className="header-logo">
         <a href="/" className="header-logo-p">
-          randomQuote.com
+          tailoredQuote.com
         </a>
       </div>
       <div className="header-quotes-section">
