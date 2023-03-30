@@ -13,7 +13,7 @@ export const AllQuotes = () => {
 
   return (
     <div className="quotes-wrapper">
-      <h1>every Quote...</h1>
+      <h1>Quotes...</h1>
       <QuoteCard data={data} />
     </div>
   );

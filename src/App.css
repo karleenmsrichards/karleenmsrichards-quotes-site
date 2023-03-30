@@ -6,11 +6,7 @@
 }
 
 body {
-  background: url("https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__480.jpg") no-repeat center center fixed; 
-  background: url("https://cdn.pixabay.com/photo/2019/03/21/23/04/flowers-4072214__480.jpg") no-repeat center center fixed; 
-
-  background: url("https://cdn.pixabay.com/photo/2016/03/07/21/12/grass-1243082__480.jpg") no-repeat center center fixed; 
-
+  background: url("https://cdn.pixabay.com/photo/2017/08/01/09/55/garden-plant-2564136__480.jpg") no-repeat center center fixed; 
   background-size: cover;
   width: 100%;
 }
@@ -21,50 +17,51 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
 }
 
-@media only screen and (max-width: 375px) {
+
+@media only screen and (min-width: 900px) {
   .App {
-    gap: 10px;
+    gap: 30px;
   }
 }
 
 header {
-  margin-top: 20px;
   width: 100%;
+  background-color: #f2ede5;
+  box-shadow: 0px 15px 10px -15px #111;    
   display: grid;
-  grid-template-columns: 1fr .4fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-areas: 
-  "header-logo header-quotes-section";
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  "header-logo"
+  "header-nav-section";
+  justify-items: center;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 900px) {
   header {
-    margin-top: 10px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr .7fr;
+    grid-template-rows: auto;
     grid-template-areas: 
-    "header-logo"
-    "header-quotes-section";
+    "header-logo header-nav-section";
+    padding: 8px;
   }
 }
 
 .header-logo {
-  color: rgb(43, 41, 41);
+  width: 100%;
   grid-area: header-logo;
-  border-right: 1px solid black;
-  padding: 3%;
-  justify-self: end;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 900px) {
   .header-logo {
-    width: 100%;
-    text-align: right;
-    border: none;
-    border-bottom: 1px solid black;
+    padding: 20px;
+    border-bottom: none;
   }
 }
 
@@ -72,113 +69,102 @@ header {
   font-weight: 600;
   text-decoration: none;
   color: black;
+  color: rgb(237, 206, 250);
+  color: #da2fed;
   font-size: 20px;
 }
 
 .header-logo-p:hover {
-  color: rgb(31, 172, 76);
+  color: rgb(34, 169, 27);
   text-decoration: underline;
-  }
+}
 
-.header-quotes-section {
-  grid-area: header-quotes-section;
+.header-nav-wrapper {
+  width: 100%;
+  grid-area: header-nav-section;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr .7fr;
   justify-items: center;
   align-content: center;
 }
 
-@media only screen and (max-width: 375px) {
-  .header-quotes-section {
+
+@media only screen and (min-width: 900px) {
+  .header-nav-wrapper {
     width: 100%;
-    grid-template-columns: 1fr .7fr;
+    grid-template-columns: .2fr .2fr .5fr;
+    column-gap: 20px;
   }
 }
 
-.header-quotes-section-allQuotes-wrapper {
-  border-right: 1px solid black;
-  padding: 17% 25% 17% 17%;
-}
-
-@media only screen and (max-width: 375px) {
-  .header-quotes-section-allQuotes-wrapper  {
-    padding: 0;
-    padding: 10px 50px 10px 0;
+@media only screen and (min-width: 900px) {
+  .header-nav-section-quotes-wrapper {
+    display: flex;
+    flex-direction: row;
   }
 }
 
-.header-quotes-section-search-wrapper {
-  padding: 17% 24% 17% 17%; 
-}
-
-@media only screen and (max-width: 375px) {
-  .header-quotes-section-search-wrapper {
-    padding: 0;
-    padding: 10px 0;
-  }
-}
-
-.header-search-text {
+.header-quotes-section-text {
   color: black;
+  font-weight: 600;
   text-decoration: none;
+  padding: 0;
+ 
 }
 
-.header-search-text:hover {
-color: rgb(31, 172, 76);
-text-decoration: underline;
-}
-
-.header-random-text {
-  color: black;
-  text-decoration: none;
-}
-
-.header-random-text:hover {
-  color: rgb(31, 172, 76);
+.header-quotes-section-text:hover {
+  color: #da2fed;
   text-decoration: underline;
 }
 
+.header-quotes-section-favourites {
+  padding-right: 70px;
+}
+
 .loading-wrapper {
+  text-align: center;
+  align-items: center;
+  padding: 5% 7%;
+}
+
+@media only screen and (min-width: 900px) {
+  .loading-wrapper {
     width: 900px;
-    /* background-color: rgb(248, 227, 253); */
     border: 1px solid black;
     padding: 4% 5%;
     text-align: left;
 }
-
-@media only screen and (max-width: 375px) {
-  .loading-wrapper {
-      text-align: center;
-      align-items: center;
-      padding: 5% 7%;
-  }
 }
 
 .hero-wrapper {
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  text-align: center;
   align-items: center;
-  gap: 20px;
-  padding: 4% 5%;
-  /* border: 1px solid black; */
+  gap: 15px;
+  margin: 0 15px;
+  padding: 10% 5%;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 900px) {
   .hero-wrapper {
-    width: 90%;
-    text-align: center;
+    width: 70%;
+    background-color: #f3f1ef;
+    box-shadow: 25px 0px 20px -20px rgba(0,0,0,0.45),
+                0px 25px 20px -20px rgba(0,0,0,0.45),
+                -25px 0px 20px -20px rgba(0,0,0,0.45);
+    justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin: 0 15px;
-    padding: 10% 5%;
+    gap: 20px;
+    padding: 4% 5%;
+    margin-top: 50px;
+    border-radius: 20px;
   }
 }
 
 .hero-quote {
   text-align: center;
-  /* border: 2px dotted red; */
 }
 
 .bold-text {
@@ -186,111 +172,103 @@ text-decoration: underline;
   color:rgb(43, 41, 41);
 }
 
+.hero-btns-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
 .hero-btn {
-  background-color: rgb(184, 53, 239);
-  background-color: rgb(17, 121, 7);
-  background-color: rgb(23, 143, 186);
-  background-color: rgb(244, 232, 70);
+  background-color: #0caa63;
   padding: 15px 20px;
-  /* border: 1px solid black; */
   border: none;
   font-weight: bold;
   font-size: 16px;
+  color: white;
   box-shadow: 0 3px 10px rgb(115, 113, 113);
+  border-radius: 10px;
 }
 
 .hero-btn:hover {
-  background-color: black;
+  background-color: #da2fed;
   color: white;
 }
 
-.quotes-wrapper-empty {
-  width: 30%;
-  padding: 3% 5%;
-  margin-top: 13px;
+.quotes-wrapper {
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 25px 0px 20px -20px rgba(0,0,0,0.45),
+  0px 25px 20px -20px rgba(0,0,0,0.45),
+  -25px 0px 20px -20px rgba(0,0,0,0.45);
+  background-color: #f3f1ef;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: 30px 20px;
+  margin-top: 10px;
 }
 
-@media only screen and (max-width: 375px) {
-  .quotes-wrapper-empty {
-    width: 90%;
+@media only screen and (min-width: 900px) {
+  .quotes-wrapper {
+    width: 70%;
+    gap: 20px;
+    padding: 50px;
     margin-top: 50px;
   }
 }
 
-.quotes-wrapper {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 50px;
-  background-color: white;
-}
-
-@media only screen and (max-width: 375px) {
-  .quotes-wrapper {
-    width: 90%;
-    gap: 0;
-    align-items: center; 
-    text-align: center;
-    padding: 30px 20px;
-    margin-top: 30px;
-  }
-}
-
 h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  align-self: center;
+  font-size: 24px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 900px) {
   h1 {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 10px;
   }
 }
 
 .quote-content {
+  border-bottom: 1px solid rgb(226, 221, 221);
   display: flex;
   flex-direction: column;
-  gap: 0;
   padding: 20px 0;
-  border-bottom: 1px solid rgb(226, 221, 221);
+  gap: 10px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (min-width: 900px) {
   .quote-content {
-    gap: 10px;
+    gap: 0;
+    padding: 20px 0;
   }
 }
 
 .quotes-label-input{
-  align-self: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  justify-items: center;
 }
 
 .search-quote-label {
-  color: rgb(43, 41, 41);
+  color: white;
+  background-color: #da2fed;
   font-weight: bold;
-  font-size: 20px;
+  padding: 4px 6px;
 }
 
-@media only screen and (max-width: 768px) {
-  .search-quote-label {
-    font-size: 18px;
-  }
-}
 
 .quotes-input {
   padding: 5px;
   border: 1px solid  rgb(226, 221, 221);
 }
 
-@media only screen and (max-width: 768px) {
-  .search-results-wrapper {
+.search-results-wrapper {
     margin-top: 30px;
-  }
 }
+
 
