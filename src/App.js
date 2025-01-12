@@ -13,16 +13,16 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch(
-      `https://karleenmsrichards-quotes.glitch.me/quotes/search?term=${inputValue}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
-  }, [inputValue]);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://karleenmsrichards-quotes.glitch.me/quotes/search?term=${inputValue}`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       console.log(data);
+  //     });
+  // }, [inputValue]);
 
   return (
     <div className="App">
@@ -32,7 +32,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/quotes" element={<AllQuotes />} />
+              {/* <Route path="/quotes" element={<AllQuotes />} /> */}
               <Route path="/quotes/search" element={<SearchPage />} />
               <Route path="/quotes/favourites" element={<MyFavourites />} />
             </Routes>

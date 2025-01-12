@@ -1,50 +1,62 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Home = () => {
-  const [data, setData] = useState(null);
-  const [favourites, setFavourites] = useState([]);
+  const [emotion, setEmotion] = useState(""); // To store the user input for emotion
+  const [quote, setQuote] = useState(""); // To store the generated quote
 
-  const url = `https://karleenmsrichards-quotes.glitch.me/quotes/random`;
+  const handleEmotionChange = (e) => {
+    setEmotion(e.target.value); // Update emotion when user types
+  };
 
-  function newQuoteHandleClick() {
-    window.location.reload();
-  }
+  const handleFetchQuote = async () => {
+    // Make sure emotion is not empty before sending request
+    if (emotion.trim() === "") {
+      alert("Please enter an emotion.");
+      return;
+    }
 
-  function favouriteHandleClick() {
-    console.log(data.quote);
-    setFavourites(...favourites.concat(data.quote));
-  }
+    const url = "http://localhost:5000/quote"; // The backend URL
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => err);
-  }, [url]);
+    const requestBody = { emotion: emotion }; // Send emotion in the body
+
+    try {
+      const response = await fetch(url, {
+        method: "POST", // Use POST request
+        headers: {
+          "Content-Type": "application/json", // Indicate we're sending JSON
+        },
+        body: JSON.stringify(requestBody), // Convert emotion to JSON format
+      });
+
+      const data = await response.json();
+      
+      if (data?.quote) {
+        setQuote(data.quote); // Update the quote state with the received quote
+      } else {
+        alert("No quote received, please try again.");
+      }
+    } catch (error) {
+      console.error("Error fetching quote:", error);
+      alert("There was an error fetching the quote.");
+    }
+  };
 
   return (
     <div className="hero-wrapper">
-      <h1>your Tailored quote...</h1>
+      <h1>Get a Motivational Quote</h1>
+      
+      <input
+        type="text"
+        placeholder="Enter your emotion"
+        value={emotion}
+        onChange={handleEmotionChange} // Handle input change
+      />
 
-      {!data?.quote ? (
-        <p>"...your Quote will be with you soon"</p>
-      ) : (
-        <p className="hero-quote">"{data?.quote}"</p>
-      )}
-      <p>
-        <span className="bold-text">Author:</span> {data?.author}
-      </p>
-      <div className="hero-btns-wrapper">
-        <button className="hero-btn" onClick={newQuoteHandleClick}>
-          New Quote
-        </button>
+      <button className="hero-btn" onClick={handleFetchQuote}>
+        Get Quote
+      </button>
 
-        <button className="hero-btn" onClick={favouriteHandleClick}>
-          Add to Favourites
-        </button>
-      </div>
+      {quote && <p className="hero-quote">"{quote}"</p>}
     </div>
   );
 };
