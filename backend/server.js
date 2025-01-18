@@ -6,13 +6,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000; 
 
-const corsOptions = {
-    origin: 'http://localhost:3000', 
-    methods: ['GET', 'POST'],  
-    allowedHeaders: ['Content-Type', 'Authorization'],  
-  };
-  
-app.use(cors(corsOptions)); 
+app.use(cors());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
