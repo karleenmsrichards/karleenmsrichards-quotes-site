@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# moodBoost
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+moodBoost is a web application designed to uplift and inspire users by providing motivational quotes tailored to their emotions. Whether you're feeling down or need a little motivation, moodBoost is here to help keep you on track.
 
-## Available Scripts
+## Features
+🧠 Google Gemini AI Integration: Backend is powered by Google Gemini AI to generate personalized quotes based on user emotions.
+🎯 Personalized Inspiration: Enter your emotion and receive a tailored motivational quote.
+🌟 Random Motivational Phrases: Adds an extra boost with a random encouraging phrase after every quote.
+✨ User-Friendly Design: Clean, modern, and responsive interface for all devices.
 
-In the project directory, you can run:
+## How It Works
+Enter your current emotion (e.g., "happy," "stressed," "motivated") in the input field.
+Click the "Find Your Inspiration" button.
+Google Gemini AI processes your input and delivers an inspiring motivational quote.
+A random motivational phrase is displayed along with the quote for extra encouragement.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+⚛️ Javascript - React: For building the user interface.
+🎨 CSS: For styling and responsive design.
+📡 Fetch API: For communicating with the backend.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+🛠️ Node.js: Server-side JavaScript for handling requests.
+🤖 Google Gemini AI: Integrated and trained to process emotions and generate quotes.
+🚀 Express.js: For building and managing API routes.
 
-### `npm test`
+## Installation
+Follow these steps to set up the project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Clone the repository:
 
-### `npm run build`
+git clone https://github.com/karleenmsrichards/karleenmsrichards-quotes-site.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```cd quotes site```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Install dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```npm install```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Start the frontend development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```npm start```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Ensure the backend server is running with Google Gemini AI integration: Start the backend:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```node server.js```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Open your browser and visit:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Frontend: http://localhost:3000
+Backend: http://localhost:5000
