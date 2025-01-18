@@ -1,62 +1,104 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export const Home = () => {
-  const [emotion, setEmotion] = useState(""); // To store the user input for emotion
-  const [quote, setQuote] = useState(""); // To store the generated quote
+export const Home = ({ emotion, setEmotion, quote, setQuote }) => {
+  const [randomPhrase, setRandomPhrase] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const phrases = [
+    "Best of luck!",
+    "Keep pushing forward!",
+    "You're doing great!",
+    "Don't give up!",
+    "Stay strong!",
+    "You're amazing!",
+    "Believe in yourself!",
+    "Keep going!",
+    "You've got this!",
+    "Never stop trying!"
+  ];
+
+  const getRandomPhrase = () => {
+    const randomIndex = Math.floor(Math.random() * phrases.length);
+    return phrases[randomIndex];
+  };
 
   const handleEmotionChange = (e) => {
-    setEmotion(e.target.value); // Update emotion when user types
+    setEmotion(e.target.value);
   };
 
   const handleFetchQuote = async () => {
-    // Make sure emotion is not empty before sending request
     if (emotion.trim() === "") {
       alert("Please enter an emotion.");
       return;
     }
 
-    const url = "http://localhost:5000/quote"; // The backend URL
+    setIsLoading(true);
 
-    const requestBody = { emotion: emotion }; // Send emotion in the body
+    const requestBody = { emotion };
 
     try {
-      const response = await fetch(url, {
-        method: "POST", // Use POST request
+      const response = await fetch("http://localhost:5000/quote", {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json", // Indicate we're sending JSON
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(requestBody), // Convert emotion to JSON format
+        body: JSON.stringify(requestBody),
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
       const data = await response.json();
-      
+
       if (data?.quote) {
-        setQuote(data.quote); // Update the quote state with the received quote
+        setQuote(data.quote);
+        setRandomPhrase(getRandomPhrase());
       } else {
         alert("No quote received, please try again.");
       }
     } catch (error) {
       console.error("Error fetching quote:", error);
-      alert("There was an error fetching the quote.");
+      alert("There was an error fetching the quote. Please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="hero-wrapper">
-      <h1>Get a Motivational Quote</h1>
-      
+      <h1>
+        Welcome to <span className="primary-orange">mood</span>
+        <span className="primary-green">Boost</span>
+      </h1>
+      <p className="hero-text">
+        Searching for a job can be a rollercoaster of emotions, but you don’t have to face it alone.
+        We’re here to help lift your spirits and keep you motivated on your journey.
+      </p>
+
       <input
         type="text"
-        placeholder="Enter your emotion"
+        placeholder="How are you feeling today?"
         value={emotion}
-        onChange={handleEmotionChange} // Handle input change
+        onChange={handleEmotionChange}
+        aria-label="Enter your current emotion"
       />
-
-      <button className="hero-btn" onClick={handleFetchQuote}>
-        Get Quote
+      <button
+        className="cta-btn"
+        onClick={handleFetchQuote}
+        disabled={isLoading}
+        aria-label="Fetch an inspirational quote"
+      >
+        {isLoading ? "Here it comes..." : "Find Your Inspiration"}
       </button>
 
-      {quote && <p className="hero-quote">"{quote}"</p>}
+      {quote && (
+        <div className="quote-wrapper">
+          <h2 className="quote-heading">Here’s your Inspiration...</h2>
+          <p className="quote">"{quote}"</p>
+          {randomPhrase && <p className="quote-phrase">PS... {randomPhrase}</p>}
+        </div>
+      )}
     </div>
   );
 };
