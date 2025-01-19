@@ -68,8 +68,8 @@ export const Home = ({ emotion, setEmotion, quote, setQuote }) => {
   return (
     <div className="hero-wrapper">
       <h1>
-        Welcome to <span className="primary-orange">mood</span>
-        <span className="dark-blue">Boost</span>
+        Welcome to <span className="primary-orange logo-mood">mood</span>
+        <span className="dark-blue logo-boost">Boost</span>
       </h1>
       <p className="hero-text">
         Searching for a job can be a rollercoaster of emotions, but you don’t have to face it alone.
