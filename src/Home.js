@@ -37,7 +37,7 @@ export const Home = ({ emotion, setEmotion, quote, setQuote }) => {
     const requestBody = { emotion };
 
     try {
-      const response = await fetch("http://localhost:5000/quote", {
+      const response = await fetch("https://karleenmsrichards-quotes-site-1.onrender.com/quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
