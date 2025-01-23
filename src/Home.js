@@ -75,7 +75,6 @@ export const Home = ({ emotion, setEmotion, quote, setQuote }) => {
         Searching for a job can be a rollercoaster of emotions, but you don’t have to face it alone.
         We’re here to help lift your spirits and keep you motivated on your journey.
       </p>
-
       <input
         type="text"
         placeholder="How are you feeling today?"
