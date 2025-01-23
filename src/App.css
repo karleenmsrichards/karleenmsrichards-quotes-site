@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300..700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -19,7 +19,6 @@
 }
 
 body {
-  background: url("https://cdn.pixabay.com/photo/2017/04/06/17/44/outlook-2208932_1280.jpg") no-repeat center center fixed;
   background: url("https://cdn.pixabay.com/photo/2020/03/03/20/31/boat-4899802_1280.jpg") no-repeat center center fixed;
   background-size: cover;
   font-family: Quicksand, sans-serif;
@@ -30,12 +29,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  margin: 150px auto;
+  padding: 1rem;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-wrapper {
-  background-color: var(--light-blue);
+  background-color: rgba(243, 252, 254, 0.9);
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -43,21 +44,26 @@ body {
   align-items: center;
   text-align: center;
   border-radius: 15px;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 @media only screen and (min-width: 900px) {
   .hero-wrapper {
     width: 70%;
+    padding: 40px;
     box-shadow: 
       25px 0px 20px -20px rgba(0, 0, 0, 0.45),
       0px 25px 20px -20px rgba(0, 0, 0, 0.45),
       -25px 0px 20px -20px rgba(0, 0, 0, 0.45);
-    gap: 1.25rem;
-    margin: 0 auto;
+    gap: 2rem;
   }
 }
+
 
 .primary-orange {
   color: var(--primary-orange); 
@@ -67,12 +73,12 @@ body {
   color: var(--dark-blue);
 }
 
-.logo-mood, .logo-boost {
+.logo-primary, .logo-secondary {
   font-size: 2rem;
 }
 
 @media only screen and (min-width: 900px) {
-  .logo-mood, .logo-boost {
+  .logo-primary, .logo-secondary {
     font-size: 2.3rem;
   }
 }
@@ -80,14 +86,14 @@ body {
 h1 {
   font-family: Poppins, sans-serif;
   color: var(--primary-grey);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   margin-bottom: 0;
 }
 
 @media only screen and (min-width: 900px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 10px;
   }
 }
@@ -110,30 +116,68 @@ input {
   border-radius: 10px;
   padding: 10px;
   width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: var(--dark-blue);
+  outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  input::placeholder {
+    font-size: 0.9rem;
+  }
 }
 
 @media only screen and (min-width: 900px) {
   input {
     width: 80%;
-    max-width: 400px;
+    max-width: 400px; 
+    padding: 12px;
+  }
+
+  input::placeholder {
+    font-size: 1.1rem;
   }
 }
 
 .cta-btn {
   background-color: var(--dark-orange);
   border: none;
-  padding: 15px 20px;
+  padding: 18px 24px;
   font-weight: bold;
   font-size: 1rem;
   color: var(--white);
   border-radius: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
 }
 
 .cta-btn:hover {
   background-color: var(--dark-blue);
   color: var(--white);
+  transform: scale(1.05);
 }
+
+
+/* .quote-wrapper {
+  border-radius: 10px;
+  background-color: var(--mid-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+} */
 
 .quote-wrapper {
   border-radius: 10px;
@@ -142,7 +186,15 @@ input {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
+
+@media only screen and (min-width: 900px) {
+  .quote-wrapper {
+    padding: 30px;
+  }
+}
+
 
 .quote-heading {
   font-family: Poppins, sans-serif;
